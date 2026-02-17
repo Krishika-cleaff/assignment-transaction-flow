@@ -22,4 +22,5 @@ public class Order {
     private List<String> items;
     private BigDecimal amount;
     private OrderStatus status;
+
 }

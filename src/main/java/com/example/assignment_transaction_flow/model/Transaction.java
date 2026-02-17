@@ -21,6 +21,4 @@ public class Transaction {
     private TransactionStatus transactionStatus;
     private LocalDateTime timestamp;
     private String message;
-
-
 }
