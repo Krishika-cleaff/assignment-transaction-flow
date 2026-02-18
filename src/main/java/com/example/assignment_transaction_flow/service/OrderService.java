@@ -2,6 +2,7 @@ package com.example.assignment_transaction_flow.service;
 
 import com.example.assignment_transaction_flow.exception.InvalidOrderException;
 import com.example.assignment_transaction_flow.model.Order;
+import com.example.assignment_transaction_flow.model.OrderStatus;
 import com.example.assignment_transaction_flow.repository.OrderRepo;
 import org.springframework.stereotype.Service;
 
@@ -25,6 +26,9 @@ public class OrderService {
         if(order.getStatus()!=null && order.getStatus() != PENDING){
             throw new InvalidOrderException("Order status should be PENDING.");
         }
+        if(order.getItems()==null){
+            throw new InvalidOrderException("Order should be placed with some items");
+        }
 
         order.setStatus(PENDING);
         return orderRepo.save(order);
@@ -34,5 +38,15 @@ public class OrderService {
         return orderRepo.findById(id).orElseThrow(()-> new RuntimeException("Order not found."));
     }
 
-    public void updateOrderStatus(String id){}
+    public void updateOrderStatus(String id, OrderStatus status){
+        Order order = getOrderById(id);
+        order.setStatus(status);
+        orderRepo.save(order);
+    }
+
+    public void updateCustomerBalance(String id, BigDecimal balance){
+        Order order = getOrderById(id);
+        order.getCustomer().setBalance(balance);
+        orderRepo.save(order);
+    }
 }
