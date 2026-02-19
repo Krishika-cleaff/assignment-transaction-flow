@@ -12,6 +12,8 @@ import com.example.assignment_transaction_flow.service.strategy.PaymentProcessor
 import com.example.assignment_transaction_flow.service.strategy.PaymentProcessorFactory;
 import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Service
 public class PaymentService {
@@ -19,6 +21,7 @@ public class PaymentService {
     private final TransactionRepo transactionRepo;
     private final OrderService orderService;
     private final PaymentProcessorFactory processorFactory;
+    private static final Logger logger = LoggerFactory.getLogger(PaymentService.class);
 
     public PaymentService(PaymentRepo paymentRepo,OrderService orderService,PaymentProcessorFactory processorFactory, TransactionRepo transactionRepo){
         this.paymentRepo = paymentRepo;
@@ -28,6 +31,10 @@ public class PaymentService {
     }
 
     public Payment initiatePayment(PaymentRequest paymentRequest){
+        logger.info("Payment initiated for orderId: {}, method: {}",
+                paymentRequest.getOrderId(),
+                paymentRequest.getPaymentMethod());
+
         Order order = orderService.getOrderById(paymentRequest.getOrderId());
 
         if(order.getStatus()== OrderStatus.SUCCESS) throw new InvalidPaymentAttemptException("Order already placed.");
@@ -64,6 +71,11 @@ public class PaymentService {
             transaction.setTransactionStatus(TransactionStatus.SUCCESS);
             transaction.setTimestamp(LocalDateTime.now());
             transaction.setMessage("Transaction completed successfully.");
+
+            logger.info("Payment SUCCESS for orderId: {}, amount: {}",
+                    paymentRequest.getOrderId(),
+                    order.getAmount());
+
         }
         catch (InvalidCredentialsException |
                InsufficientBalanceException |
@@ -75,6 +87,10 @@ public class PaymentService {
             transaction.setTransactionStatus(TransactionStatus.FAILED);
             transaction.setTimestamp(LocalDateTime.now());
             transaction.setMessage(e.getMessage());
+
+            logger.error("Payment FAILED for orderId: {} | Reason: {}",
+                    paymentRequest.getOrderId(),
+                    e.getMessage());
 
             throw e;
         }
