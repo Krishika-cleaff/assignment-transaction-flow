@@ -97,14 +97,11 @@ class ReportServiceTest {
         DailyReportResponse report =
                 reportService.generateReportByDate(today);
 
-        // Total success
         assertEquals(2, report.getTotalSuccess());
 
-        // Failed grouped
         assertEquals(1,
                 report.getFailedByReason().get("Insufficient balance"));
 
-        // Revenue
         assertEquals(new BigDecimal("500"),
                 report.getRevenueByMethod().get(PaymentMethod.UPI));
 

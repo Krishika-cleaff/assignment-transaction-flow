@@ -1,75 +1,27 @@
-2026-02-19T15:41:13.534+05:30  INFO 12033 --- [assignment-transaction-flow] [restartedMain] e.a.AssignmentTransactionFlowApplication : Starting AssignmentTransactionFlowApplication using Java 21.0.10 with PID 12033 (/home/cleaff/Documents/Training/Spring/assignment/assignment-transaction-flow/target/classes started by cleaff in /home/cleaff/Documents/Training/Spring/assignment/assignment-transaction-flow)
-2026-02-19T15:41:13.536+05:30  INFO 12033 --- [assignment-transaction-flow] [restartedMain] e.a.AssignmentTransactionFlowApplication : No active profile set, falling back to 1 default profile: "default"
-2026-02-19T15:41:14.142+05:30  INFO 12033 --- [assignment-transaction-flow] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2026-02-19T15:41:14.142+05:30  INFO 12033 --- [assignment-transaction-flow] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.50]
-2026-02-19T15:41:14.166+05:30  INFO 12033 --- [assignment-transaction-flow] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2026-02-19T15:41:14.703+05:30  INFO 12033 --- [assignment-transaction-flow] [restartedMain] e.a.AssignmentTransactionFlowApplication : Started AssignmentTransactionFlowApplication in 1.416 seconds (process running for 1.608)
-2026-02-19T15:41:32.443+05:30  INFO 12033 --- [assignment-transaction-flow] [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-02-19T15:41:32.503+05:30  INFO 12033 --- [assignment-transaction-flow] [http-nio-8080-exec-2] c.e.a.service.PaymentService             : Payment initiated for orderId: 6996db2ff3a4f9fa18bdd6ca, method: UPI
-2026-02-19T15:41:32.920+05:30 ERROR 12033 --- [assignment-transaction-flow] [http-nio-8080-exec-2] c.e.a.service.PaymentService             : Payment FAILED for orderId: 6996db2ff3a4f9fa18bdd6ca | Reason: Invalid UPI credentials.
-2026-02-19T16:09:31.001+05:30  INFO 12033 --- [assignment-transaction-flow] [restartedMain] e.a.AssignmentTransactionFlowApplication : Starting AssignmentTransactionFlowApplication using Java 21.0.10 with PID 12033 (/home/cleaff/Documents/Training/Spring/assignment/assignment-transaction-flow/target/classes started by cleaff in /home/cleaff/Documents/Training/Spring/assignment/assignment-transaction-flow)
-2026-02-19T16:09:31.002+05:30  INFO 12033 --- [assignment-transaction-flow] [restartedMain] e.a.AssignmentTransactionFlowApplication : No active profile set, falling back to 1 default profile: "default"
-2026-02-19T16:09:31.134+05:30 ERROR 12033 --- [assignment-transaction-flow] [restartedMain] o.s.boot.SpringApplication               : Application run failed
-
-java.lang.TypeNotPresentException: Type com.example.assignment_transaction_flow.model.Transaction not present
-	at java.base/sun.reflect.generics.factory.CoreReflectionFactory.makeNamedType(CoreReflectionFactory.java:117) ~[na:na]
-	at java.base/sun.reflect.generics.visitor.Reifier.visitClassTypeSignature(Reifier.java:125) ~[na:na]
-	at java.base/sun.reflect.generics.tree.ClassTypeSignature.accept(ClassTypeSignature.java:49) ~[na:na]
-	at java.base/sun.reflect.generics.visitor.Reifier.reifyTypeArguments(Reifier.java:68) ~[na:na]
-	at java.base/sun.reflect.generics.visitor.Reifier.visitClassTypeSignature(Reifier.java:138) ~[na:na]
-	at java.base/sun.reflect.generics.tree.ClassTypeSignature.accept(ClassTypeSignature.java:49) ~[na:na]
-	at java.base/sun.reflect.generics.repository.ClassRepository.computeSuperInterfaces(ClassRepository.java:117) ~[na:na]
-	at java.base/sun.reflect.generics.repository.ClassRepository.getSuperInterfaces(ClassRepository.java:95) ~[na:na]
-	at java.base/java.lang.Class.getGenericInterfaces(Class.java:1298) ~[na:na]
-	at org.springframework.core.ResolvableType.getInterfaces(ResolvableType.java:553) ~[spring-core-6.2.15.jar:6.2.15]
-	at org.springframework.core.ResolvableType.as(ResolvableType.java:501) ~[spring-core-6.2.15.jar:6.2.15]
-	at org.springframework.data.util.TypeDiscoverer.getSuperTypeInformation(TypeDiscoverer.java:263) ~[spring-data-commons-3.5.8.jar:3.5.8]
-	at org.springframework.data.util.ClassTypeInformation.getSuperTypeInformation(ClassTypeInformation.java:37) ~[spring-data-commons-3.5.8.jar:3.5.8]
-	at org.springframework.data.util.TypeInformation.getRequiredSuperTypeInformation(TypeInformation.java:327) ~[spring-data-commons-3.5.8.jar:3.5.8]
-	at org.springframework.data.repository.core.support.DefaultRepositoryMetadata.<init>(DefaultRepositoryMetadata.java:55) ~[spring-data-commons-3.5.8.jar:3.5.8]
-	at org.springframework.data.repository.core.support.AbstractRepositoryMetadata.getMetadata(AbstractRepositoryMetadata.java:79) ~[spring-data-commons-3.5.8.jar:3.5.8]
-	at org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport.getRepositoryConfigurations(RepositoryConfigurationExtensionSupport.java:93) ~[spring-data-commons-3.5.8.jar:3.5.8]
-	at org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:170) ~[spring-data-commons-3.5.8.jar:3.5.8]
-	at org.springframework.boot.autoconfigure.data.AbstractRepositoryConfigurationSourceSupport.registerBeanDefinitions(AbstractRepositoryConfigurationSourceSupport.java:62) ~[spring-boot-autoconfigure-3.5.10.jar:3.5.10]
-	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.lambda$loadBeanDefinitionsFromRegistrars$1(ConfigurationClassBeanDefinitionReader.java:409) ~[spring-context-6.2.15.jar:6.2.15]
-	at java.base/java.util.LinkedHashMap.forEach(LinkedHashMap.java:986) ~[na:na]
-	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsFromRegistrars(ConfigurationClassBeanDefinitionReader.java:408) ~[spring-context-6.2.15.jar:6.2.15]
-	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForConfigurationClass(ConfigurationClassBeanDefinitionReader.java:148) ~[spring-context-6.2.15.jar:6.2.15]
-	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitions(ConfigurationClassBeanDefinitionReader.java:120) ~[spring-context-6.2.15.jar:6.2.15]
-	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:430) ~[spring-context-6.2.15.jar:6.2.15]
-	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:290) ~[spring-context-6.2.15.jar:6.2.15]
-	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:349) ~[spring-context-6.2.15.jar:6.2.15]
-	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:118) ~[spring-context-6.2.15.jar:6.2.15]
-	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:791) ~[spring-context-6.2.15.jar:6.2.15]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:609) ~[spring-context-6.2.15.jar:6.2.15]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.5.10.jar:3.5.10]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) ~[spring-boot-3.5.10.jar:3.5.10]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.5.10.jar:3.5.10]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.5.10.jar:3.5.10]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361) ~[spring-boot-3.5.10.jar:3.5.10]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350) ~[spring-boot-3.5.10.jar:3.5.10]
-	at com.example.assignment_transaction_flow.AssignmentTransactionFlowApplication.main(AssignmentTransactionFlowApplication.java:10) ~[classes/:na]
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
-	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.5.10.jar:3.5.10]
-Caused by: java.lang.ClassNotFoundException: com.example.assignment_transaction_flow.model.Transaction
-	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641) ~[na:na]
-	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188) ~[na:na]
-	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526) ~[na:na]
-	at java.base/java.lang.Class.forName0(Native Method) ~[na:na]
-	at java.base/java.lang.Class.forName(Class.java:536) ~[na:na]
-	at java.base/java.lang.Class.forName(Class.java:515) ~[na:na]
-	at org.springframework.boot.devtools.restart.classloader.RestartClassLoader.loadClass(RestartClassLoader.java:121) ~[spring-boot-devtools-3.5.10.jar:3.5.10]
-	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526) ~[na:na]
-	at java.base/java.lang.Class.forName0(Native Method) ~[na:na]
-	at java.base/java.lang.Class.forName(Class.java:536) ~[na:na]
-	at java.base/java.lang.Class.forName(Class.java:515) ~[na:na]
-	at java.base/sun.reflect.generics.factory.CoreReflectionFactory.makeNamedType(CoreReflectionFactory.java:114) ~[na:na]
-	... 39 common frames omitted
-
-2026-02-19T16:09:32.578+05:30  INFO 12033 --- [assignment-transaction-flow] [restartedMain] e.a.AssignmentTransactionFlowApplication : Starting AssignmentTransactionFlowApplication using Java 21.0.10 with PID 12033 (/home/cleaff/Documents/Training/Spring/assignment/assignment-transaction-flow/target/classes started by cleaff in /home/cleaff/Documents/Training/Spring/assignment/assignment-transaction-flow)
-2026-02-19T16:09:32.579+05:30  INFO 12033 --- [assignment-transaction-flow] [restartedMain] e.a.AssignmentTransactionFlowApplication : No active profile set, falling back to 1 default profile: "default"
-2026-02-19T16:09:32.827+05:30  INFO 12033 --- [assignment-transaction-flow] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2026-02-19T16:09:32.828+05:30  INFO 12033 --- [assignment-transaction-flow] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.50]
-2026-02-19T16:09:32.832+05:30  INFO 12033 --- [assignment-transaction-flow] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2026-02-19T16:09:33.039+05:30  INFO 12033 --- [assignment-transaction-flow] [restartedMain] e.a.AssignmentTransactionFlowApplication : Started AssignmentTransactionFlowApplication in 0.49 seconds (process running for 1699.944)
+2026-02-24T11:19:01.058+05:30  INFO 6479 --- [assignment-transaction-flow] [main] c.e.a.controller.OrderControllerTest     : Starting OrderControllerTest using Java 21.0.10 with PID 6479 (started by cleaff in /home/cleaff/Documents/Training/Spring/assignment/assignment-transaction-flow)
+2026-02-24T11:19:01.065+05:30  INFO 6479 --- [assignment-transaction-flow] [main] c.e.a.controller.OrderControllerTest     : No active profile set, falling back to 1 default profile: "default"
+2026-02-24T11:19:03.301+05:30  INFO 6479 --- [assignment-transaction-flow] [main] c.e.a.controller.OrderControllerTest     : Started OrderControllerTest in 2.544 seconds (process running for 3.483)
+2026-02-24T11:23:10.452+05:30  INFO 6673 --- [assignment-transaction-flow] [main] c.e.a.controller.OrderControllerTest     : Starting OrderControllerTest using Java 21.0.10 with PID 6673 (started by cleaff in /home/cleaff/Documents/Training/Spring/assignment/assignment-transaction-flow)
+2026-02-24T11:23:10.453+05:30  INFO 6673 --- [assignment-transaction-flow] [main] c.e.a.controller.OrderControllerTest     : No active profile set, falling back to 1 default profile: "default"
+2026-02-24T11:23:11.733+05:30  INFO 6673 --- [assignment-transaction-flow] [main] c.e.a.controller.OrderControllerTest     : Started OrderControllerTest in 1.603 seconds (process running for 2.385)
+2026-02-24T11:27:53.526+05:30  INFO 6832 --- [assignment-transaction-flow] [main] c.e.a.controller.OrderControllerTest     : Starting OrderControllerTest using Java 21.0.10 with PID 6832 (started by cleaff in /home/cleaff/Documents/Training/Spring/assignment/assignment-transaction-flow)
+2026-02-24T11:27:53.528+05:30  INFO 6832 --- [assignment-transaction-flow] [main] c.e.a.controller.OrderControllerTest     : No active profile set, falling back to 1 default profile: "default"
+2026-02-24T11:27:54.944+05:30  INFO 6832 --- [assignment-transaction-flow] [main] c.e.a.controller.OrderControllerTest     : Started OrderControllerTest in 1.77 seconds (process running for 2.699)
+2026-02-24T11:29:53.004+05:30  INFO 6953 --- [assignment-transaction-flow] [main] c.e.a.controller.OrderControllerTest     : Starting OrderControllerTest using Java 21.0.10 with PID 6953 (started by cleaff in /home/cleaff/Documents/Training/Spring/assignment/assignment-transaction-flow)
+2026-02-24T11:29:53.005+05:30  INFO 6953 --- [assignment-transaction-flow] [main] c.e.a.controller.OrderControllerTest     : No active profile set, falling back to 1 default profile: "default"
+2026-02-24T11:29:54.473+05:30  INFO 6953 --- [assignment-transaction-flow] [main] c.e.a.controller.OrderControllerTest     : Started OrderControllerTest in 1.794 seconds (process running for 2.546)
+2026-02-24T11:54:31.254+05:30  INFO 8001 --- [assignment-transaction-flow] [main] c.e.a.controller.OrderControllerTest     : Starting OrderControllerTest using Java 21.0.10 with PID 8001 (started by cleaff in /home/cleaff/Documents/Training/Spring/assignment/assignment-transaction-flow)
+2026-02-24T11:54:31.255+05:30  INFO 8001 --- [assignment-transaction-flow] [main] c.e.a.controller.OrderControllerTest     : No active profile set, falling back to 1 default profile: "default"
+2026-02-24T11:54:32.564+05:30  INFO 8001 --- [assignment-transaction-flow] [main] c.e.a.controller.OrderControllerTest     : Started OrderControllerTest in 1.624 seconds (process running for 2.375)
+2026-02-24T11:57:30.752+05:30  INFO 8200 --- [assignment-transaction-flow] [main] c.e.a.controller.OrderControllerTest     : Starting OrderControllerTest using Java 21.0.10 with PID 8200 (started by cleaff in /home/cleaff/Documents/Training/Spring/assignment/assignment-transaction-flow)
+2026-02-24T11:57:30.754+05:30  INFO 8200 --- [assignment-transaction-flow] [main] c.e.a.controller.OrderControllerTest     : No active profile set, falling back to 1 default profile: "default"
+2026-02-24T11:57:32.156+05:30  INFO 8200 --- [assignment-transaction-flow] [main] c.e.a.controller.OrderControllerTest     : Started OrderControllerTest in 1.738 seconds (process running for 2.51)
+2026-02-24T11:58:26.693+05:30  INFO 8315 --- [assignment-transaction-flow] [main] c.e.a.controller.OrderControllerTest     : Starting OrderControllerTest using Java 21.0.10 with PID 8315 (started by cleaff in /home/cleaff/Documents/Training/Spring/assignment/assignment-transaction-flow)
+2026-02-24T11:58:26.695+05:30  INFO 8315 --- [assignment-transaction-flow] [main] c.e.a.controller.OrderControllerTest     : No active profile set, falling back to 1 default profile: "default"
+2026-02-24T11:58:28.046+05:30  INFO 8315 --- [assignment-transaction-flow] [main] c.e.a.controller.OrderControllerTest     : Started OrderControllerTest in 1.693 seconds (process running for 2.469)
+2026-02-24T12:02:52.346+05:30  INFO 8558 --- [assignment-transaction-flow] [main] c.e.a.controller.PaymentControllerTest   : Starting PaymentControllerTest using Java 21.0.10 with PID 8558 (started by cleaff in /home/cleaff/Documents/Training/Spring/assignment/assignment-transaction-flow)
+2026-02-24T12:02:52.347+05:30  INFO 8558 --- [assignment-transaction-flow] [main] c.e.a.controller.PaymentControllerTest   : No active profile set, falling back to 1 default profile: "default"
+2026-02-24T12:02:53.677+05:30  INFO 8558 --- [assignment-transaction-flow] [main] c.e.a.controller.PaymentControllerTest   : Started PaymentControllerTest in 1.708 seconds (process running for 2.461)
+2026-02-24T12:07:43.905+05:30  INFO 8740 --- [assignment-transaction-flow] [main] c.e.a.controller.ReportControllerTest    : Starting ReportControllerTest using Java 21.0.10 with PID 8740 (started by cleaff in /home/cleaff/Documents/Training/Spring/assignment/assignment-transaction-flow)
+2026-02-24T12:07:43.906+05:30  INFO 8740 --- [assignment-transaction-flow] [main] c.e.a.controller.ReportControllerTest    : No active profile set, falling back to 1 default profile: "default"
+2026-02-24T12:07:45.235+05:30  INFO 8740 --- [assignment-transaction-flow] [main] c.e.a.controller.ReportControllerTest    : Started ReportControllerTest in 1.691 seconds (process running for 2.446)
